@@ -47,7 +47,8 @@
                     <div class="card mb-3 animated fadeIn shadow-sm">
                       <div class="card-body">
                         <h4 class="card-title" id="title"></h4>
-                        <span class="text-muted" id="content"></span>
+                        <img id="content"></img>
+                        <!-- <span class="text-muted" id="content"></span> -->
                       </div>
                     </div>
       
@@ -111,7 +112,6 @@
 
                     setTimeout(refresh, 5000);
                 }
-
                 refresh();
 
                 var scroller = document.querySelector("#scroller");
@@ -146,7 +146,8 @@
 
                         // Query & update the template content
                         template_clone.querySelector("#title").innerHTML = `${data[i][0]}: ${data[i][1]}`;
-                        template_clone.querySelector("#content").innerHTML = data[i][2];
+                        template_clone.querySelector("#content").setAttribute('src', data[i][2]);
+                        // template_clone.querySelector("#content").innerHTML = data[i][2];
 
                         // Append template to dom
                         scroller.appendChild(template_clone);

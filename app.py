@@ -62,23 +62,14 @@ obcaecati saepe pariatur atque est? Quam, molestias nisi.
 db = list()  # The mock database
 
 posts = 500  # num posts to generate
-
 quantity = 20  # num posts to return per request
 
 for x in range(posts):
-
     """
-    Creates messages/posts by shuffling the heading & content 
-    to create random strings & appends to the db
+    Fills db with a meme.
     """
 
-    heading_parts = heading.split(" ")
-    random.shuffle(heading_parts)
-
-    content_parts = content.split(" ")
-    random.shuffle(content_parts)
-
-    db.append([x, " ".join(heading_parts), " ".join(content_parts)])
+    db.append([x, "One does not simply", "https://media.giphy.com/media/l4pT1LutQtGufYNJ6/giphy.gif"])
 
 @app.route("/load")
 def load():

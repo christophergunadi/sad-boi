@@ -3,8 +3,8 @@ from flask import Flask, render_template, request, jsonify
 from azure.cognitiveservices.vision.face import FaceClient, models
 from msrest.authentication import CognitiveServicesCredentials
 
-credentials = CognitiveServicesCredentials(os.environ['face_api_key'])
-face_client = FaceClient(os.environ['face_api_endpoint'], credentials=credentials)
+credentials = CognitiveServicesCredentials(os.environ['FACE_SUBSCRIPTION_KEY'])
+face_client = FaceClient(os.environ['FACE_ENDPOINT'], credentials=credentials)
 
 app = Flask(__name__)
 
@@ -24,6 +24,7 @@ def check_results():
     image = io.BytesIO(image_bytes)
 
     # Send the image to the Face API service
+    # This gets all the possible attributes
     face_attributes = list(map(lambda c: c.value, models.FaceAttributeType))
     faces = face_client.face.detect_with_stream(image,
                                                 return_face_attributes=face_attributes)

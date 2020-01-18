@@ -147,7 +147,6 @@
                         // Query & update the template content
                         template_clone.querySelector("#title").innerHTML = `${data[i][0]}: ${data[i][1]}`;
                         template_clone.querySelector("#content").setAttribute('src', data[i][2]);
-                        // template_clone.querySelector("#content").innerHTML = data[i][2];
 
                         // Append template to dom
                         scroller.appendChild(template_clone);

@@ -1,4 +1,4 @@
-import os, io, base64, random, time
+import os, io, base64, random, time, requests
 from flask import Flask, render_template, request, jsonify, make_response
 from azure.cognitiveservices.vision.face import FaceClient, models
 from msrest.authentication import CognitiveServicesCredentials
@@ -51,25 +51,24 @@ def check_results():
             'message': 'not happy 😢'
         })
 
-heading = "Lorem ipsum dolor sit amet."
-
-content = """
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-Repellat inventore assumenda laboriosam, 
-obcaecati saepe pariatur atque est? Quam, molestias nisi.
-"""
-
 db = list()  # The mock database
 
 posts = 500  # num posts to generate
 quantity = 20  # num posts to return per request
 
+# Use imgflip API to collect memes 😎
+data = requests.get(url="https://api.imgflip.com/get_memes").json()["data"]["memes"]
+
 for x in range(posts):
     """
     Fills db with a meme.
     """
+    index = x % len(data)
 
-    db.append([x, "One does not simply", "https://media.giphy.com/media/l4pT1LutQtGufYNJ6/giphy.gif"])
+    title = data[index]["name"]
+    url   = data[index]["url"]
+
+    db.append([x, title, url])
 
 @app.route("/load")
 def load():

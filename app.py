@@ -44,11 +44,13 @@ def check_results():
     
     if len(faces) >= 1 and is_happy(faces[0].face_attributes.emotion):
         return jsonify({
-            'message': 'What a nice smile 😍🥰🌈🔥'
+            'message': 'What a nice smile 😍🥰🌈🔥',
+            'boi': '/static/pics/happyboi.png'
         })
     else:
         return jsonify({
-            'message': 'not happy 😢'
+            'message': 'not happy 😢',
+            'boi': '/static/pics/normalboi.png'
         })
 
 db = list()  # The mock database
@@ -67,6 +69,8 @@ for x in range(posts):
 
     title = data[index]["name"]
     url   = data[index]["url"]
+
+    # data = requests.get(url="https://some-random-api.ml/meme").json()
 
     db.append([x, title, url])
 

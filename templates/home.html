@@ -18,6 +18,10 @@
     </nav>
 
     <body>
+      <div class="fixed-bottom">
+        <img id="boi" height="200" align="right"></img>
+      </div>
+
       <!-- VIDEO STUFF -->
       <div class="row justify-content-center">
         <video id="video" autoplay></video>
@@ -35,8 +39,6 @@
             <div class="row">
               <div class="col">
       
-                <h1 class="display-4 mb-3">Infinite load</h1>
-      
                 <!-- div to contain the content -->
                 <div id="scroller" class="mb-3">
       
@@ -47,7 +49,7 @@
                     <div class="card mb-3 animated fadeIn shadow-sm">
                       <div class="card-body">
                         <h4 class="card-title" id="title"></h4>
-                        <img id="content"></img>
+                        <img id="content" width="500"></img>
                         <!-- <span class="text-muted" id="content"></span> -->
                       </div>
                     </div>
@@ -83,6 +85,7 @@
                 }
 
                 var message = document.getElementById('message');
+                var boi = document.getElementById('boi');
 
                 const refresh = async () => {
                     // Draw the image on a canvas so it can be captured as base64 encoded binary data
@@ -107,6 +110,7 @@
 
                         var jsonResult = await result.json()
                         message.textContent = jsonResult.message
+                        boi.setAttribute("src", jsonResult.boi)
                     }
                     getResult()
 
@@ -145,7 +149,7 @@
                         let template_clone = template.content.cloneNode(true);
 
                         // Query & update the template content
-                        template_clone.querySelector("#title").innerHTML = `${data[i][0]}: ${data[i][1]}`;
+                        template_clone.querySelector("#title").innerHTML = `${data[i][1]}`;
                         template_clone.querySelector("#content").setAttribute('src', data[i][2]);
 
                         // Append template to dom

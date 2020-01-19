@@ -85,7 +85,7 @@ window.addEventListener("DOMContentLoaded", function() {
             let template_clone = template.content.cloneNode(true);
 
             // Query & update the template content
-            template_clone.querySelector("#title").innerHTML = `${data[i][0]}`;
+            // template_clone.querySelector("#title").innerHTML = `${data[i][0]}`;
             template_clone.querySelector("#content").setAttribute('src', data[i][1]);
 
             // Append template to dom

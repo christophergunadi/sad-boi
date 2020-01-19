@@ -72,7 +72,6 @@ curated_memes = [
     ["Bug-catching kitty", "https://media.giphy.com/media/Y1vaVnrSYeDe9Hy5ak/giphy.gif"],
     ["Just trying to work out", "https://media.giphy.com/media/jnniZ3sMZWnkxmZPyn/giphy.gif"],
     ["Awww", "https://media.giphy.com/media/YmPNGMrizkE28kufai/giphy.gif"],
-    ["Cozy","https://img-9gag-fun.9cache.com/photo/a3RWeB8_460s.jpg"],
     ["Facts", "https://img.ifunny.co/images/8e267b93ac018b6dd43baee5bf9dcd368465fa644c0a4a07ccb69c67788dacd8_1.jpg"],
     ["Hackerman", "https://img-9gag-fun.9cache.com/photo/aN0R810_460s.jpg"],
     ["Hackerman2", "https://images3.memedroid.com/images/UPLOADED117/5d78580e9c694.jpeg"],

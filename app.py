@@ -75,7 +75,15 @@ curated_memes = [
     ["Facts", "https://img.ifunny.co/images/8e267b93ac018b6dd43baee5bf9dcd368465fa644c0a4a07ccb69c67788dacd8_1.jpg"],
     ["Hackerman", "https://img-9gag-fun.9cache.com/photo/aN0R810_460s.jpg"],
     ["Hackerman2", "https://images3.memedroid.com/images/UPLOADED117/5d78580e9c694.jpeg"],
-    ["Man", "https://images7.memedroid.com/images/UPLOADED822/5aa0836df0d4c.jpeg"]]
+    ["Man", "https://images7.memedroid.com/images/UPLOADED822/5aa0836df0d4c.jpeg"],
+    ["it be like that", "https://i.chzbgr.com/full/9310034432/h89A4C820/saying-oh-no-mesa-disappearin-text-above-reads-when-your-professor-says-attendance-isnt-mandatory"],
+    ["goddeem", "https://i.chzbgr.com/full/9371521792/h1A810A06/on-me-with-joe-oh-shit-who-told-you-wait-this-was-just-supposed-to-be-for-a-meme-whos-joe-joe-mama"],
+    ["","https://external-preview.redd.it/bZUo5Q3MmQas3fOlXKpf9Ao8p0UwUy0S8vcDbh3LPT0.jpg?auto=webp&s=2f3ef451d903f7c38dbfc9745a9cda6c474ad2ef"],
+    ["","https://pics.onsizzle.com/napoleon-returns-to-france-1815-huh-i-wonder-who-thats-52093194.png"],
+    ["", "https://files.slack.com/files-pri/TS7F0A0F5-FSWT49T62/meme.jpg"],
+    ["", "https://cdn2.kontraband.com/uploads/image/2019/6/21/preview_e96bc679.jpeg"],
+    ["", "https://images3.memedroid.com/images/UPLOADED338/5c0846cda7957.jpeg"],
+    ["", "http://meme-drop.com/wp-content/uploads/2017/11/ukTRSvy-1024x930.jpg"]]
 
 # Use imgflip API to collect memes 😎
 # data = requests.get(url="https://api.imgflip.com/get_memes").json()["data"]["memes"]

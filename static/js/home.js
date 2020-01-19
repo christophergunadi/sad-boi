@@ -11,7 +11,11 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 
     var message = document.getElementById('message');
+    var navtext = document.getElementById('navtext');
     var boi = document.getElementById('boi');
+
+    const happyMsg = "What a nice smile 😍🥰🌈🔥"
+    const unhappyMsg = "not happy 😢"
 
     const refresh = async () => {
         // Draw the image on a canvas so it can be captured as base64 encoded binary data
@@ -35,7 +39,13 @@ window.addEventListener("DOMContentLoaded", function() {
             })
 
             var jsonResult = await result.json()
-            message.textContent = jsonResult.message
+            if (jsonResult.happy == 1) {
+              message.textContent = happyMsg
+              navtext.textContent = happyMsg
+            } else {
+              message.textContent = unhappyMsg
+              navtext.textContent = ""
+            }
             boi.setAttribute("src", jsonResult.boi)
         }
         getResult()

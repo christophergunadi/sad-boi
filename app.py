@@ -44,12 +44,12 @@ def check_results():
     
     if len(faces) >= 1 and is_happy(faces[0].face_attributes.emotion):
         return jsonify({
-            'message': 'What a nice smile 😍🥰🌈🔥',
+            'happy': 1,
             'boi': '/static/pics/happyboi.png'
         })
     else:
         return jsonify({
-            'message': 'not happy 😢',
+            'happy': 0,
             'boi': '/static/pics/normalboi.png'
         })
 
@@ -58,21 +58,45 @@ db = list()  # The mock database
 posts = 500  # num posts to generate
 quantity = 20  # num posts to return per request
 
-curated_memes = []
+curated_memes = [
+    ["Wristband!", "https://i.ibb.co/yqvL1J1/Image-from-i-OS.jpg"],
+    ["What is sleep?", "https://i.ibb.co/2sBT4WS/image.png"],
+    ["It be like that sometimes", "https://i.ibb.co/tXwF5TF/meme.png"],
+    ["Meme loading...", "https://i.ibb.co/tcxSNcY/Phil-Swift-Slaps-On-Flex-Tape-Leak-18012020185640.jpg"],
+    ["Perfectly balanced", "https://i.ibb.co/n1DXsp5/1.jpg"],
+    ["007", "https://i.ibb.co/VwWJwHt/2.jpg"],
+    ["You cannot take our freedom!", "https://i.ibb.co/hYdRx6q/3.jpg"],
+    ["Keep scrolling", "https://i.ibb.co/chzYdMz/4.jpg"],
+    ["Free T-Shirts from Hack Cambridge?", "https://i.ibb.co/vBMxH92/5.jpg"],
+    ["Dog vs Hoodie", "https://media.giphy.com/media/emHFoQ3y689ne2HhLR/giphy.gif"],
+    ["Bug-catching kitty", "https://media.giphy.com/media/Y1vaVnrSYeDe9Hy5ak/giphy.gif"],
+    ["Just trying to work out", "https://media.giphy.com/media/jnniZ3sMZWnkxmZPyn/giphy.gif"],
+    ["Awww", "https://media.giphy.com/media/YmPNGMrizkE28kufai/giphy.gif"],
+    ["Cozy","https://img-9gag-fun.9cache.com/photo/a3RWeB8_460s.jpg"],
+    ["Facts", "https://img.ifunny.co/images/8e267b93ac018b6dd43baee5bf9dcd368465fa644c0a4a07ccb69c67788dacd8_1.jpg"],
+    ["Hackerman", "https://img-9gag-fun.9cache.com/photo/aN0R810_460s.jpg"],
+    ["Hackerman2", "https://images3.memedroid.com/images/UPLOADED117/5d78580e9c694.jpeg"],
+    ["Man", "https://images7.memedroid.com/images/UPLOADED822/5aa0836df0d4c.jpeg"]]
 
 # Use imgflip API to collect memes 😎
-data = requests.get(url="https://api.imgflip.com/get_memes").json()["data"]["memes"]
+# data = requests.get(url="https://api.imgflip.com/get_memes").json()["data"]["memes"]
 
 for x in range(posts):
     """
     Fills db with a meme.
     """
-    index = x % len(data)
+    # index = x % len(data)
 
-    title = data[index]["name"]
-    url   = data[index]["url"]
+    # title = data[index]["name"]
+    # url   = data[index]["url"]
 
-    # data = requests.get(url="https://some-random-api.ml/meme").json()
+    index = x % len(curated_memes)
+
+    if index == 0:
+        random.shuffle(curated_memes)
+
+    title = curated_memes[index][0]
+    url   = curated_memes[index][1]
 
     db.append([title, url])
 

@@ -32,13 +32,16 @@ window.addEventListener("DOMContentLoaded", function() {
 
         // Make the POST request and get back the result
         const getResult = async () => {
+            console.log("Getting image result..")
             var result = await fetch('process_image', {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: { 'Content-Type': 'application/json' }
             })
 
-            var jsonResult = await result.json()
+            var jsonResult = await result.json(
+            console.log(jsonResult);
+            )
             if (jsonResult.happy == 1) {
               message.textContent = happyMsg
               navtext.textContent = happyMsg
@@ -48,10 +51,13 @@ window.addEventListener("DOMContentLoaded", function() {
             }
             boi.setAttribute("src", jsonResult.boi)
         }
-        getResult()
 
-        setTimeout(refresh, 5000);
+        // this function can be a bit slow depending on upload speed.
+        await getResult()
+
+        refresh();
     }
+
     refresh();
 
     var scroller = document.querySelector("#scroller");

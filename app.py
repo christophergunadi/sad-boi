@@ -58,6 +58,8 @@ db = list()  # The mock database
 posts = 500  # num posts to generate
 quantity = 20  # num posts to return per request
 
+curated_memes = []
+
 # Use imgflip API to collect memes 😎
 data = requests.get(url="https://api.imgflip.com/get_memes").json()["data"]["memes"]
 
@@ -72,7 +74,7 @@ for x in range(posts):
 
     # data = requests.get(url="https://some-random-api.ml/meme").json()
 
-    db.append([x, title, url])
+    db.append([title, url])
 
 @app.route("/load")
 def load():
